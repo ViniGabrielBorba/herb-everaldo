@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos Herbalife - Herbalife Vida Saudável</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <i class="fas fa-leaf"></i>
+                        <span>Herbalife Vida Saudável</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="produtos.html" class="nav-link active">Produtos</a></li>
+                    <li><a href="sobre.html" class="nav-link">Sobre Nós</a></li>
+                    <li><a href="depoimentos.html" class="nav-link">Resultados</a></li>
+                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Carrinho Flutuante -->
+    <div class="cart-float" id="cartFloat">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+    </div>
+
+    <!-- Modal do Carrinho -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h3><i class="fas fa-shopping-cart"></i> Seu Carrinho</h3>
+                <button class="close-cart" id="closeCart">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Itens do carrinho serão inseridos aqui -->
+            </div>
+            <div class="cart-total">
+                <div class="total-info">
+                    <span>Total: R$ <span id="cartTotal">0,00</span></span>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn">
+                    <i class="fas fa-credit-card"></i>
+                    Finalizar Compra
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Nossos Produtos</h1>
+                <p>Descubra nossa linha completa de produtos para nutrição, energia e bem-estar</p>
+            </div>
+        </section>
+
+        <!-- Filtros e Busca -->
+        <section class="products-section">
+            <div class="container">
+                <div class="products-header">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Buscar produtos...">
+                    </div>
+                    <div class="sort-options">
+                        <select id="sortSelect">
+                            <option value="name">Ordenar por Nome</option>
+                            <option value="price-low">Menor Preço</option>
+                            <option value="price-high">Maior Preço</option>
+                            <option value="category">Categoria</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="product-filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="nutricao">Nutrição</button>
+                    <button class="filter-btn" data-filter="energia">Energia</button>
+                    <button class="filter-btn" data-filter="peso">Controle de Peso</button>
+                    <button class="filter-btn" data-filter="fitness">Fitness</button>
+                    <button class="filter-btn" data-filter="beleza">Beleza</button>
+                </div>
+
+                <div class="products-grid" id="productsGrid">
+                    <!-- Produtos serão inseridos via JavaScript -->
+                </div>
+
+                <!-- Paginação -->
+                <div class="pagination" id="pagination">
+                    <!-- Paginação será inserida via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Categorias em Destaque -->
+        <section class="categories-section">
+            <div class="container">
+                <h2>Categorias em Destaque</h2>
+                <div class="categories-grid">
+                    <div class="category-card" onclick="filterByCategory('nutricao')">
+                        <i class="fas fa-apple-alt"></i>
+                        <h3>Nutrição</h3>
+                        <p>Shakes, vitaminas e suplementos nutricionais</p>
+                        <span class="product-count">5 produtos</span>
+                    </div>
+                    <div class="category-card" onclick="filterByCategory('energia')">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Energia</h3>
+                        <p>Chás, energéticos e produtos para vitalidade</p>
+                        <span class="product-count">3 produtos</span>
+                    </div>
+                    <div class="category-card" onclick="filterByCategory('peso')">
+                        <i class="fas fa-weight"></i>
+                        <h3>Controle de Peso</h3>
+                        <p>Termogênicos e produtos para controle de peso</p>
+                        <span class="product-count">2 produtos</span>
+                    </div>
+                    <div class="category-card" onclick="filterByCategory('fitness')">
+                        <i class="fas fa-dumbbell"></i>
+                        <h3>Fitness</h3>
+                        <p>Proteínas, aminoácidos e suplementos esportivos</p>
+                        <span class="product-count">3 produtos</span>
+                    </div>
+                    <div class="category-card" onclick="filterByCategory('beleza')">
+                        <i class="fas fa-spa"></i>
+                        <h3>Beleza</h3>
+                        <p>Cremes, óleos e produtos de cuidados pessoais</p>
+                        <span class="product-count">3 produtos</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promoções -->
+        <section class="promotions-section">
+            <div class="container">
+                <h2>Promoções do Mês</h2>
+                <div class="promotions-grid">
+                    <div class="promotion-card">
+                        <div class="promotion-badge">-20%</div>
+                        <div class="promotion-content">
+                            <h3>Combo Energia</h3>
+                            <p>Chá Concentrado + Energético Natural</p>
+                            <div class="promotion-price">
+                                <span class="old-price">R$ 101,80</span>
+                                <span class="new-price">R$ 81,44</span>
+                            </div>
+                            <button class="promotion-btn">Aproveitar Oferta</button>
+                        </div>
+                    </div>
+                    <div class="promotion-card">
+                        <div class="promotion-badge">-15%</div>
+                        <div class="promotion-content">
+                            <h3>Kit Fitness</h3>
+                            <p>Whey Protein + Aminoácidos + Barra</p>
+                            <div class="promotion-price">
+                                <span class="old-price">R$ 228,70</span>
+                                <span class="new-price">R$ 194,40</span>
+                            </div>
+                            <button class="promotion-btn">Aproveitar Oferta</button>
+                        </div>
+                    </div>
+                    <div class="promotion-card">
+                        <div class="promotion-badge">-25%</div>
+                        <div class="promotion-content">
+                            <h3>Kit Beleza</h3>
+                            <p>Creme Facial + Óleo de Argan + Shampoo</p>
+                            <div class="promotion-price">
+                                <span class="old-price">R$ 207,70</span>
+                                <span class="new-price">R$ 155,78</span>
+                            </div>
+                            <button class="promotion-btn">Aproveitar Oferta</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Herbalife Vida Saudável</h3>
+                    <p>Transformando vidas através da nutrição e bem-estar.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Produtos</h3>
+                    <ul>
+                        <li><a href="produtos.html">Nutrição</a></li>
+                        <li><a href="produtos.html">Energia</a></li>
+                        <li><a href="produtos.html">Controle de Peso</a></li>
+                        <li><a href="produtos.html">Fitness</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Suporte</h3>
+                    <ul>
+                        <li><a href="contato.html">Contato</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="depoimentos.html">Depoimentos</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Segurança</h3>
+                    <div class="security-badges">
+                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-lock"></i>
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Herbalife Vida Saudável. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/script.js"></script>
+</body>
+</html>
