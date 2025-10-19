@@ -95,6 +95,31 @@ const products = [
         price: 89.90,
         image: "fas fa-dna",
         description: "Aminoácidos essenciais para recuperação"
+    },
+    // Produtos de promoção
+    {
+        id: 100,
+        name: "Kit Início Saudável",
+        category: "promocao",
+        price: 280.00,
+        image: "fas fa-gift",
+        description: "Shake Fórmula 1 + Chá Concentrado + Multivitamínico"
+    },
+    {
+        id: 101,
+        name: "Combo Energia Total",
+        category: "promocao",
+        price: 220.00,
+        image: "fas fa-bolt",
+        description: "Chá Concentrado + N-R-G + Thermo Complete"
+    },
+    {
+        id: 102,
+        name: "Proteína para Atletas",
+        category: "promocao",
+        price: 180.00,
+        image: "fas fa-dumbbell",
+        description: "Whey Protein Herbalife + Coqueteleira exclusiva"
     }
 ];
 
@@ -649,9 +674,33 @@ document.addEventListener('click', (e) => {
         showCart();
     }
     
-    // Botões de adicionar ao carrinho
+    // Botões de adicionar ao carrinho (produtos normais)
     if (e.target.closest('.add-to-cart')) {
         const button = e.target.closest('.add-to-cart');
+        const productId = button.getAttribute('data-product-id');
+        
+        if (productId) {
+            addToCart(parseInt(productId));
+        }
+        
+        button.style.background = 'var(--secondary-green)';
+        button.innerHTML = '<i class="fas fa-check"></i> Adicionado!';
+        
+        setTimeout(() => {
+            button.style.background = 'var(--primary-green)';
+            button.innerHTML = '<i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho';
+        }, 2000);
+    }
+    
+    // Botões de promoção
+    if (e.target.closest('.promotion-btn')) {
+        const button = e.target.closest('.promotion-btn');
+        const productId = button.getAttribute('data-product-id');
+        
+        if (productId) {
+            addToCart(parseInt(productId));
+        }
+        
         button.style.background = 'var(--secondary-green)';
         button.innerHTML = '<i class="fas fa-check"></i> Adicionado!';
         
