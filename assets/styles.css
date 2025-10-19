@@ -507,6 +507,41 @@ main {
     gap: 2rem;
 }
 
+.view-all-products {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-green);
+    color: var(--white);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.view-all-btn:hover {
+    background: var(--secondary-green);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 151, 57, 0.3);
+    color: var(--white);
+}
+
+.view-all-btn i {
+    transition: var(--transition);
+}
+
+.view-all-btn:hover i {
+    transform: translateX(5px);
+}
+
 .highlight-card {
     background: var(--white);
     padding: 2rem;
@@ -2407,6 +2442,89 @@ main {
         min-width: 140px;
     }
 
+    /* Botão Ver Todos os Produtos responsivo */
+    .view-all-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .view-all-products {
+        margin-top: 2rem;
+    }
+
+    /* Modal do carrinho responsivo */
+    .cart-modal-content {
+        width: 95%;
+        max-width: 450px;
+        max-height: 85vh;
+        margin: 1rem;
+    }
+
+    .cart-modal-header {
+        padding: 1rem;
+    }
+
+    .cart-modal-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .close-cart {
+        font-size: 1.3rem;
+        padding: 0.5rem;
+        min-width: 40px;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .close-cart:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.1);
+    }
+
+    .cart-items {
+        max-height: 300px;
+        padding: 0.8rem;
+    }
+
+    .cart-item {
+        padding: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .cart-item-controls {
+        gap: 0.5rem;
+    }
+
+    .quantity-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+
+    .quantity-input {
+        width: 50px;
+        font-size: 0.9rem;
+    }
+
+    .remove-item {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+
+    .cart-total {
+        padding: 1rem;
+    }
+
+    .checkout-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
     /* Correções de espaçamento para mobile */
     .about-story,
     .mission-vision,
@@ -2595,5 +2713,79 @@ main {
         min-width: 120px;
         width: 100%;
         max-width: 200px;
+    }
+
+    /* Botão Ver Todos os Produtos em telas pequenas */
+    .view-all-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .view-all-products {
+        margin-top: 1.5rem;
+    }
+
+    /* Modal do carrinho em telas muito pequenas */
+    .cart-modal-content {
+        width: 98%;
+        max-width: 400px;
+        margin: 0.5rem;
+    }
+
+    .cart-modal-header {
+        padding: 0.8rem;
+    }
+
+    .cart-modal-header h3 {
+        font-size: 1rem;
+    }
+
+    .close-cart {
+        font-size: 1.2rem;
+        padding: 0.4rem;
+        min-width: 35px;
+        min-height: 35px;
+    }
+
+    .cart-items {
+        max-height: 250px;
+        padding: 0.6rem;
+    }
+
+    .cart-item {
+        padding: 0.6rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .cart-item-controls {
+        gap: 0.3rem;
+    }
+
+    .quantity-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.7rem;
+    }
+
+    .quantity-input {
+        width: 45px;
+        font-size: 0.8rem;
+    }
+
+    .remove-item {
+        width: 28px;
+        height: 28px;
+        font-size: 0.7rem;
+    }
+
+    .cart-total {
+        padding: 0.8rem;
+    }
+
+    .checkout-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.8rem;
     }
 }
